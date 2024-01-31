@@ -5,8 +5,8 @@ import {
 const ProductCatagoty = () => {
   return (
     <>
-      <div className="w-full magicpattern mt-40 flex justify-center bg-gray-300">
-        <div className="w-[85%] flex flex-col gap-10 z-30 bg-white">
+      <div className="w-full mt-40 bg-white flex justify-center">
+        <div className="w-[85%] flex flex-col gap-10 z-30 ">
           <h4 className="text-xl">Shop by catagory</h4>
 
           {/* Catgory Grid -> */}
