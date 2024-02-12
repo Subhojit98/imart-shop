@@ -20,27 +20,27 @@ const Footer = () => {
             {/* Speciality section -> */}
             <div className="w-full mt-20">
 
-                <div className="flex justify-around" style={rubik.style}>
+                <div className="flex justify-around text-xs xl:text-base ml-3 sm:ml-0" style={rubik.style}>
 
-                    <div className="flex flex-col gap-1">
-                        <Image src={packageBox} alt="package" className="w-7 h-7" />
-                        <h5 className='font-bold'>Free Shipping</h5>
-                        <p>Free shipping on all order above $150</p>
+                    <div className=" flex-col gap-1 hidden md:flex">
+                        <Image src={packageBox} alt="package" className="w-5 sm:w-6 sm:h-6 xl:w-7 h-5 xl:h-7" />
+                        <h5 className='font-bold sm:text-base w-1/2 md:w-full'>Free Shipping</h5>
+                        <p className='text-xs xl:text-base'>Free shipping on all order above $150</p>
+                    </div>
+                    <div className="flex flex-col gap-1 mr-2 md:mr-0">
+                        <Image src={money} alt="currency" className="w-5 sm:w-6 sm:h-6 xl:w-7 h-5 xl:h-7" />
+                        <h5 className='font-bold sm:text-base'>Money Guarantee</h5>
+                        <p className='text-xs xl:text-base'>Within 30 days for an exchange</p>
                     </div>
                     <div className="flex flex-col gap-1">
-                        <Image src={money} alt="currency" className="w-7 h-7" />
-                        <h5 className='font-bold'>Money Guarantee</h5>
-                        <p>Within 30 days for an exchange</p>
+                        <Image src={support} alt="customer care" className="w-5 sm:w-6 sm:h-6 xl:w-7 h-5 xl:h-7" />
+                        <h5 className='font-bold sm:text-base'>Online Support</h5>
+                        <p className='text-xs xl:text-base'>24 Hours a day, &days a week</p>
                     </div>
                     <div className="flex flex-col gap-1">
-                        <Image src={support} alt="customer care" className="w-7 h-7" />
-                        <h5 className='font-bold'>Online Support</h5>
-                        <p>24 Hours a day, &days a week</p>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <Image src={card} alt="credit card" className="w-7 h-7" />
-                        <h5 className='font-bold'>Flexible Payment</h5>
-                        <p>With multiple credit card</p>
+                        <Image src={card} alt="credit card" className="w-5 sm:w-6 sm:h-6 xl:w-7 h-5 xl:h-7" />
+                        <h5 className='font-bold sm:text-base'>Flexible Payment</h5>
+                        <p className='text-xs xl:text-base'>With multiple credit card</p>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@ const Footer = () => {
                             <h6 className="text-white text-2xl cursor-pointer" style={chakra.style}>iMart</h6>
                             <div className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
 
-                                <span className="block text-base text-gray-400 sm:text-center dark:text-gray-400 select-none" style={manrope.style}>© 2024 iMart™. All Rights Reserved.</span>
+                                <span className="block text-sm xl:text-base text-gray-400 sm:text-center mt-4 xl:mt-0 dark:text-gray-400 select-none " style={manrope.style}>© 2024 iMart™. All Rights Reserved.</span>
 
                             </div>
                             <ul className='text-white flex gap-3'>

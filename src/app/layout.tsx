@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const inter = Inter({ weight: "400", subsets: ["latin"] });
 export const metadata: Metadata = {
@@ -20,6 +22,7 @@ export default function RootLayout({
 
         <body className={inter.className}>
           {children}
+
         </body>
       </ReactQueryProvider>
     </html>
