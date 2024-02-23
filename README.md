@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Imart E-Commerce App
+
+Welcome to the Imart E-Commerce App! This application is a modern e-commerce platform built specifically for Imart products. It provides users with a seamless shopping experience and incorporates various features to enhance usability and functionality.
+
+## Features
+
+1. **Product Categories**: Users can explore a wide range of Imart products categorized into "Watches", "Phones", "TV & Home", "Laptops", "iPads", and "Accessories".
+   
+2. **Navigation**: A user-friendly navbar allows easy navigation throughout the app.
+   
+3. **New Collection Section**: Highlighted section showcasing the latest Imart products.
+   
+4. **Category Section**: Browse products conveniently sorted by categories.
+   
+5. **Sale Timer Section**: Displays ongoing sale with a countdown timer.
+   
+6. **Footer**: Crisp footer providing essential links and information.
+   
+7. **Shop Page**: Displays all available products with pagination for smooth browsing. Includes category and price filters, as well as options to sort products by latest or oldest.
+   
+8. **Product View Page**: Detailed view of individual products with a section for similar products. Users can add products to the cart from this page.
+   
+9. **Cart Page**: Shows all added items with options to add more products or delete items from the cart.
+   
+10. **Checkout Page**: Facilitates seamless payment processing.
+
+## Technologies Used
+
+- **Headless CMS**: Strapi
+- **GraphQL**: Utilized for queries with GraphQL plugin.
+- **Styling**: Tailwind CSS, Shadcn UI, and MagicPatterns.
+- **Framework**: Developed on Next.js version 14+.
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these simple steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Start the development server with `npm run dev`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are what make the open-source community such a fantastic place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a pull request.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+Distributed under the MIT License. See `LICENSE` for more information.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Your Name - [SUBHAJIT CHOWHAN](https://x.com/ChowhanSubhojit), (https://www.linkedin.com/in/chowhansubhajit)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)

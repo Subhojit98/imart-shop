@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import NewCollections from "./components/NewCollections";
 import ProductCatagoty from "./components/ProductCatagoty";
 import SaleTimer from "./components/SaleTimer";
-
 export default function Home() {
 
 

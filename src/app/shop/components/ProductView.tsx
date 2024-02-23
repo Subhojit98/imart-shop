@@ -24,13 +24,13 @@ const ProductView = () => {
     const { cartObj, setCartObj } = useContext<Context>(GlobalProviderContext)
     const { data: singleProductDetails, loading } = useFetchSingeProduct(productDetails?.name)
     const [isAddedToCart, setIsAddedTocart] = useState(false)
-
-
+    const [isDesigh, setIsDesign] = useState(false)
     const handleAddToCart = (productDetails: object): void => {
         const updatedCartObj = [...cartObj, productDetails]
         setCartObj(updatedCartObj)
         sessionStorage.setItem("cartObj", JSON.stringify(updatedCartObj))
         setIsAddedTocart(true)
+        setIsDesign(true)
     }
 
     const handleBackToPreviousPage = () => {
@@ -63,10 +63,23 @@ const ProductView = () => {
         }
     }, [singleProductDetails, isAddedToCart])
 
+    useEffect(() => {
+
+        if (isAddedToCart) {
+            setTimeout(() => {
+                setIsDesign(true)
+            }, 1500);
+        }
+
+        setTimeout(() => {
+            setIsDesign(false)
+        }, 6000);
+    }, [])
+
     return (
         <>
 
-            <div className="w-full h-ful flex flex-col lg:flex-row items-start mt-8">
+            <div className={`w-full h-ful flex flex-col lg:flex-row items-start mt-8`}>
                 {/* Product Related Images -> */}
                 {
                     loading ? <div className="w-full h-[50vh] flex justify-center items-center">< Image src={spinner} alt="loading spinner" className="animate-spin w-24 h-24 flex m-auto" />
@@ -94,9 +107,9 @@ const ProductView = () => {
 
 
                                     {
-                                        isAddedToCart ? <Button variant={"default"} className="w-[75%] mt-10 text-lg h-10" onClick={() => router.push("/cart")}>Check cart</Button> :
+                                        isAddedToCart ? <Button variant={"default"} className={`w-[75%] mt-10 text-lg h-10 bg-green-600 duration-400 hover:bg-green-300 text-white hover:text-gray-900 ${isDesigh && "animate-bounce"}`} onClick={() => router.push("/cart")}>Check cart</Button> :
 
-                                            <Button variant={"default"} className="w-[75%] mt-10 text-lg h-10" onClick={() => handleAddToCart(singleProductDetails?.products?.data[0].attributes)}>Add to cart</Button>
+                                            <Button variant={"default"} className={"w-[75%] mt-10 text-lg h-10"} onClick={() => handleAddToCart(singleProductDetails?.products?.data[0].attributes)}>Add to cart</Button>
                                     }
 
 

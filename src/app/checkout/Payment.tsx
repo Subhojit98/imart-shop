@@ -70,6 +70,9 @@ const Payment = ({ cartItems }: { cartItems: [CartObjType] | [] }) => {
         if (cardNumber.length === 16 && cardCvv.length === 3 && cardExpiry.length === 5) {
             setIsOrderConfermed(true)
         }
+        else {
+            alert("Please provide valid card details")
+        }
 
         setCartObj([])
         sessionStorage.setItem("cartObj", JSON.stringify([]))
