@@ -8,10 +8,11 @@ import Image from "next/image"
 import OrderConfermation from "./OrderConfermation"
 import { GlobalProviderContext } from "@/providers/GlobalProvider"
 import { Context } from "@apollo/client"
+import { CartObjType } from "../interface/product"
 const Cart = () => {
 
     const { isOrderConfermed } = useContext<Context>(GlobalProviderContext)
-    const [cartItemsToCheckout, setCartItemsToCheckout] = useState<[]>([])
+    const [cartItemsToCheckout, setCartItemsToCheckout] = useState<[] | [CartObjType]>([])
 
     useEffect(() => {
 
@@ -29,7 +30,10 @@ const Cart = () => {
             <Navbar />
             {
 
-                isOrderConfermed ? <OrderConfermation /> :
+                isOrderConfermed ?
+
+                    <OrderConfermation />
+                    :
 
                     <> {cartItemsToCheckout.length < 0 ?
 
@@ -44,8 +48,9 @@ const Cart = () => {
                                     {
                                         cartItemsToCheckout.map((items, i) => {
                                             const { name, price, quantity, images } = items
+                                            const imageToUse = images.data[0]?.attributes?.url
                                             return <div key={i} className="flex flex-col rounded-lg bg-white sm:flex-row">
-                                                <Image className="m-2 h-24 w-28 rounded-md border object-cover object-center" src={`http://localhost:1337${images?.data[0].attributes.url}`} alt="product image" width={100} height={100} />
+                                                <Image src={`http://localhost:1337${imageToUse}`} alt="product image" width={100} height={100} className="m-2 h-24 w-28 rounded-md border object-cover object-center" />
                                                 <div className="flex w-full flex-col px-4 py-4 gap-2">
                                                     <span className="font-semibold">{name}</span>
                                                     <p className="text-lg font-bold">{price}$</p>

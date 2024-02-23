@@ -6,15 +6,17 @@ import EmptyCart from "./components/EmptyCart"
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import { useRouter } from "next/navigation"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Context } from "@apollo/client"
 import { GlobalProviderContext } from "@/providers/GlobalProvider"
-
+import { CartObjType } from "@/app/interface/product"
 const Page = () => {
     const router = useRouter()
+
     const { cartObj, setCartObj } = useContext<Context>(GlobalProviderContext)
 
-    const handlDelectItemFromCart = (name: any) => {
+    // delete item from cart ->
+    const handlDelectItemFromCart = (name: any): void => {
         const updatedCartObj = cartObj.filter((product: any) => product.name !== name)
         setCartObj(updatedCartObj)
 
@@ -36,7 +38,8 @@ const Page = () => {
         sessionStorage.setItem("cartObj", JSON.stringify(updatedCartObj))
     }
 
-    const deCrementItemQuantity = (name: string) => {
+
+    const deCrementItemQuantity = (name: string): void => {
 
         const updatedCartObj = cartObj.map((product: any) => {
             if (product.name === name) {
@@ -49,13 +52,14 @@ const Page = () => {
         sessionStorage.setItem("cartObj", JSON.stringify(updatedCartObj))
     }
 
-    const generateSubTotal = (cartValues: any) => {
+    // generate subtotal ->
+    const generateSubTotal = (cartValues: [CartObjType]) => {
 
         return cartValues.reduce((acc, item) => {
             return item.price * item.quantity + acc
         }, 0)
     }
-
+    // static tax and shipping charges ->
     const taxCharges = 2.99
     const shippingCharges = 16.77
     // return total value upto 2 decimal places -> ex: 2.00
@@ -64,7 +68,6 @@ const Page = () => {
     return (
         <>
             <Navbar />
-
             <div className="w-full mt-10">
                 {cartObj.length <= 0 && <EmptyCart />}
                 {cartObj.length > 0 &&
@@ -80,7 +83,7 @@ const Page = () => {
 
                                 <div className="w-full overflow-y-auto mt-6">
 
-                                    {cartObj.map((products, i: number) => {
+                                    {cartObj.map((products: CartObjType, i: number) => {
 
                                         const { name, price, images, quantity } = products
 

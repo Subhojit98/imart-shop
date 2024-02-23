@@ -5,9 +5,10 @@ import street from '@/app/assets/estate.svg'
 import Image from "next/image"
 import { Context } from "@apollo/client"
 import { GlobalProviderContext } from "@/providers/GlobalProvider"
+import { CartObjType } from '@/app/interface/product'
 
 
-const Payment = ({ cartItems }: { cartItems: object }) => {
+const Payment = ({ cartItems }: { cartItems: [CartObjType] | [] }) => {
     const taxCharges = 2.99
     const shippingCharges = 16.77
     const [cardNumber, setCardNumber] = useState<string>("")
@@ -16,9 +17,11 @@ const Payment = ({ cartItems }: { cartItems: object }) => {
     const { setIsOrderConfermed, setCartObj } = useContext<Context>(GlobalProviderContext)
 
 
-    const countSubTotal = (quantity: number, price: number) => {
+    const countSubTotal = (cart: [CartObjType] | []) => {
 
-        return quantity * price
+        return cart.reduce((acc: number, item: any) => {
+            return item.price * item.quantity + acc
+        }, 0)
     }
 
     const generatTotal = (cartValues: any) => {
@@ -29,21 +32,21 @@ const Payment = ({ cartItems }: { cartItems: object }) => {
 
     }
 
-    const handleCardNumber = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCardNumber = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { value } = e.target
         const isNumber = /^[0-9]*$/.test(value)
         isNumber && setCardNumber(value)
 
     }
 
-    const handleCardCvv = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCardCvv = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { value } = e.target
         const isNumber = /^[0-9]*$/.test(value)
         isNumber && setCardCvv(value)
 
     }
 
-    const handleCardExpiry = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCardExpiry = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { value } = e.target;
 
         // Remove any non-numeric characters ->
@@ -62,7 +65,7 @@ const Payment = ({ cartItems }: { cartItems: object }) => {
     }
 
 
-    const handlePlaceOrder = () => {
+    const handlePlaceOrder = (): void => {
 
         if (cardNumber.length === 16 && cardCvv.length === 3 && cardExpiry.length === 5) {
             setIsOrderConfermed(true)
@@ -128,12 +131,7 @@ const Payment = ({ cartItems }: { cartItems: object }) => {
                     <div className="mt-6 border-t border-b py-3">
                         <div className="flex items-center justify-between mt-2">
                             <p className="text-sm font-medium text-gray-900">Subtotal</p>
-                            <p className="font-semibold text-gray-900">${
-                                cartItems?.map((items: any) => {
-                                    const { price, quantity } = items
-                                    return countSubTotal(quantity, price)
-                                })
-                            }</p>
+                            <p className="font-semibold text-gray-900">${countSubTotal(cartItems)}</p>
                         </div>
                         <div className="flex items-center justify-between mt-2">
                             <p className="text-sm font-medium text-gray-900">Shipping</p>

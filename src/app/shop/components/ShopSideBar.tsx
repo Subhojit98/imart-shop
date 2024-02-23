@@ -12,16 +12,18 @@ const raleway = Raleway({ weight: "400", subsets: ["latin"] })
 const ShopSideBar = () => {
     const { filters, setFilters, setPriceFilter, setSortType } = useContext<Context>(GlobalProviderContext)
     const [selectedCheckbox, setSelectedCheckbox] = useState<null | string>(null)
+
+    // handleing the catagory filters ->
     const handleCatagoryFilters = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const { value, checked } = e.target
 
         if (checked) {
             setFilters([...filters, value])
         }
-
         else setFilters((prev: string[]) => prev.filter((item) => item !== value))
     }
 
+    // handleing the price filters ->
 
     const hanldePriceFilters = (checkboxName: string, e: React.ChangeEvent<HTMLInputElement>): void => {
 
@@ -34,6 +36,7 @@ const ShopSideBar = () => {
         else setPriceFilter(null)
     }
 
+    // handleing the sort by filter ->
     const handleSortBy = (e: React.MouseEvent<HTMLElement>): void => {
         const { value } = e.target as any
         setSortType(value)

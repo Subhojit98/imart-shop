@@ -2,12 +2,6 @@ import ShopSideBar from "./components/ShopSideBar"
 import AllProducts from "./components/AllProducts"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
-import { Checkbox } from "@/components/ui/checkbox"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Rubik, Raleway } from "next/font/google"
-
-const rubik = Rubik({ weight: "400", subsets: ["latin"] })
-const raleway = Raleway({ weight: "400", subsets: ["latin"] })
 import {
     Sheet,
     SheetContent,

@@ -17,7 +17,7 @@ import {
 import fallbackImage from '@/app/assets/images/catagory accessories.webp'
 import { Rubik, Manrope } from "next/font/google"
 import Image from "next/image"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 const rubik = Rubik({ weight: "400", subsets: ["latin"] })
 const manrope = Manrope({ weight: "400", subsets: ["latin"] })
 import { useFetchAllProducts } from "@/app/hooks/useFetchAllProducts"
@@ -35,7 +35,8 @@ const AllProducts = () => {
     const lastPage = allProducts?.products.meta.pagination.pageCount
     const router = useRouter()
 
-    const handleProductClick = (name: string, id: number, relation: string, quantity: number) => {
+    //  storeing the product details in session storage
+    const handleProductClick = (name: string, id: number, relation: string, quantity: number): void => {
         const itemDetails = {
             name,
             id,

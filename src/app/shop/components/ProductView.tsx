@@ -15,13 +15,8 @@ import back from '@/app/assets/arrow-left.svg'
 import { useFetchSingeProduct } from "@/app/hooks/useFetchSingeProduct"
 import RelatedProducts from "./RelatedProducts"
 import { GlobalProviderContext } from "@/providers/GlobalProvider"
+import { ProductProps } from "@/app/interface/product"
 
-type ProductProps = {
-    name: string,
-    price: number,
-    description: string,
-    images: string[]
-}
 const ProductView = () => {
 
     const router = useRouter()
@@ -30,7 +25,8 @@ const ProductView = () => {
     const { data: singleProductDetails, loading } = useFetchSingeProduct(productDetails?.name)
     const [isAddedToCart, setIsAddedTocart] = useState(false)
 
-    const handleAddToCart = (productDetails: object) => {
+
+    const handleAddToCart = (productDetails: object): void => {
         const updatedCartObj = [...cartObj, productDetails]
         setCartObj(updatedCartObj)
         sessionStorage.setItem("cartObj", JSON.stringify(updatedCartObj))

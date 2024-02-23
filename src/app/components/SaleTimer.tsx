@@ -1,6 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Raleway, Manrope, Chakra_Petch } from "next/font/google"
 import Image from 'next/image'
 import saleBanner from '@/app/assets/images/sale banner.webp'
@@ -9,7 +9,41 @@ const raleway = Raleway({ weight: "400", subsets: ["latin"] })
 const manrope = Manrope({ weight: "400", subsets: ["latin"] })
 const chakra = Chakra_Petch({ weight: "400", subsets: ["latin"] })
 const SaleTimer = () => {
+
+    const [setTimer, setSetTimer] = useState(7 * 24 * 60 * 60)
     const router = useRouter()
+
+
+    const timeCountDown = () => {
+        const days = Math.floor(setTimer / (60 * 60 * 24))
+        const hours = Math.floor((setTimer % (60 * 60 * 24)) / (60 * 60))
+        const minutes = Math.floor((setTimer % (60 * 60)) / 60);
+        const seconds = setTimer % 60;
+
+        return { days, hours, minutes, seconds }
+
+    }
+    useEffect(() => {
+
+        //  refresh time every second -> 
+        const reFreshTime = setInterval(() => {
+            setSetTimer((prevCount) => {
+
+                if (prevCount <= 0) {
+                    return 7 * 24 * 60 * 60
+                }
+                else {
+                    return prevCount - 1
+                }
+            })
+        }, 1000)
+
+        // Cleanup interval on unmount -> 
+        return () => {
+            clearInterval(reFreshTime)
+        }
+    }, [])
+
     return (
         <>
             <div className="w-full h-full md:h-dvh flex justify-center items-center magicpattern">
@@ -21,26 +55,27 @@ const SaleTimer = () => {
                         <h4 className="text-3xl sm:mt-5" style={chakra.style}>{`Deal's of the month`}</h4>
 
                         <p className="" style={raleway.style}>Get ready for shoping experience like never before with our Deals of the Month! Every purchase with exclusive perks and offers, making this month a celebration of savy choices amazing deals.Dont miss out! 🎁🛒</p>
+                        {
 
-                        <div className="flex gap-4 mt-4" style={chakra.style}>
+                            <div className="flex gap-4 mt-4" style={chakra.style}>
 
-                            <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
-                                <h5 className='font-bold'>7</h5>
-                                <p>Days</p>
-                            </div>
-                            <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
-                                <h5 className='font-bold'>10</h5>
-                                <p>Hours</p>
-                            </div>
-                            <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
-                                <h5 className='font-bold'>56</h5>
-                                <p>Mins</p>
-                            </div>
-                            <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
-                                <h5 className='font-bold'>07</h5>
-                                <p>Seconds</p>
-                            </div>
-                        </div>
+                                <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
+                                    <h5 className='font-bold'>{timeCountDown().days}</h5>
+                                    <p>Days</p>
+                                </div>
+                                <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
+                                    <h5 className='font-bold'>{timeCountDown().hours}</h5>
+                                    <p>Hours</p>
+                                </div>
+                                <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
+                                    <h5 className='font-bold'>{timeCountDown().minutes}</h5>
+                                    <p>Mins</p>
+                                </div>
+                                <div className='flex flex-col items-center justify-center bg-violet-400 w-20 h-20 rounded-md '>
+                                    <h5 className='font-bold'>{timeCountDown().seconds}</h5>
+                                    <p>Seconds</p>
+                                </div>
+                            </div>}
 
                         <Button className="relative inline-flex items-center justify-center mt-3 p-4 py-6 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group w-[45%] xl:w-[35%]" style={manrope.style}
                             onClick={() => router.push("/shop")}>

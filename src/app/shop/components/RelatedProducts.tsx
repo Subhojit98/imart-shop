@@ -11,14 +11,6 @@ import { useRouter } from "next/navigation"
 const rubik = Rubik({ weight: "400", subsets: ["latin"] })
 const manrope = Manrope({ weight: "400", subsets: ["latin"] })
 const raleway = Raleway({ weight: "400", subsets: ["latin"] })
-type ProductViewProps = {
-    productInfoObj: {
-        name: string,
-        id: number,
-        relation: string
-    }
-}
-
 const RelatedProducts = () => {
 
     const router = useRouter()

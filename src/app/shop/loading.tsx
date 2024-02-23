@@ -26,7 +26,7 @@ const facts = [
     "Blending physical and digital experiences, like click - and - collect options, can enhance the customer journey and offer a competitive edge."
 ]
 
-const selectFact = (max: number, min: number) => {
+const selectFact = (max: number, min: number): string => {
     const postId = Math.floor(Math.random() * (max - min) + min)
 
     return facts[postId]
