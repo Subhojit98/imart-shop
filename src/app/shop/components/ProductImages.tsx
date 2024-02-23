@@ -6,22 +6,28 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel"
 import Image from "next/image"
-import testImg from "@/app/assets/images/catagory ipads.webp"
+import fallbackImage from "@/app/assets/images/catagory ipads.webp"
 
-const ProductImages = () => {
+const ProductImages = ({ images }) => {
     return (
         <>
 
             <div className="w-11/12 xl:w-[60%] h-full">
 
-                <div className="w-[75%] flex justify-center mt-8 mx-auto">
-                    <Carousel>
+                <div className="w-[55%] h-[20%] flex justify-center mt-8 mx-auto">
+                    <Carousel className="w-full h-full">
                         <CarouselContent>
-                            <CarouselItem>
-                                <Image src={testImg} alt="" className="object-contain w-full h-full" />
-                            </CarouselItem>
-                            <CarouselItem>2</CarouselItem>
-                            <CarouselItem>3</CarouselItem>
+
+                            {
+                                images?.data.map((ProductImage, i: number) => {
+                                    const imageUrlToUse = ProductImage.attributes.url
+                                    return <CarouselItem key={i}>
+                                        <Image src={`http://localhost:1337${imageUrlToUse}` || fallbackImage} alt="product image" className="object-cover object-center w-full h-full" width={100} height={100} />
+                                    </CarouselItem>
+
+                                })
+                            }
+
                         </CarouselContent>
                         <CarouselPrevious />
                         <CarouselNext />
@@ -29,10 +35,14 @@ const ProductImages = () => {
                 </div >
 
                 <div className="flex w-full h-full mt-3 gap-2">
-                    <div className="w-[25%] h-[10vh] sm:h-[13vh] xl:h-[20vh] border border-black"></div>
-                    <div className="w-[25%] h-[10vh] sm:h-[13vh] xl:h-[20vh] border border-black"></div>
-                    <div className="w-[25%] h-[10vh] sm:h-[13vh] xl:h-[20vh] border border-black"></div>
-                    <div className="w-[25%] h-[10vh] sm:h-[13vh] xl:h-[20vh] border border-black"></div>
+
+                    {
+                        images?.data.map((ProductImage: any, i: number) => {
+                            return <div key={i} className="w-[25%] h-[10vh] sm:h-[13vh] xl:h-[20vh] border border-black">
+                                <Image src={`http://localhost:1337${ProductImage.attributes.url}` || fallbackImage} alt="product image" className="object-contain w-full h-full" width={100} height={100} />
+                            </div>
+                        })
+                    }
                 </div>
 
             </div >

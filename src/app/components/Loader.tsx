@@ -1,7 +1,7 @@
 import { Skeleton } from "@/components/ui/skeleton"
 
 
-const Error = () => {
+const Loader = () => {
     return (
         <>
             <div className="flex gap-10 z-50">
@@ -38,4 +38,4 @@ const Error = () => {
     )
 }
 
-export default Error
+export default Loader
