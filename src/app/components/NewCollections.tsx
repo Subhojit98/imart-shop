@@ -54,7 +54,7 @@ const NewCollections = () => {
                                     const imageUrlToUse = images?.data[0]?.attributes.url
 
                                     return <Card key={i} className=" w-full z-20 h-[30vh] xl:h-[35vh] bg-white cursor-pointer border-none relative group flex justify-start items-end shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] mb-3" >
-                                        <Image src={`http://localhost:1337${imageUrlToUse}` || fallbackImage} alt="" className="absolute w-full h-full object-covr object-scale-down rounded-xl z-40" width={100} height={100} />
+                                        <Image src={`https://imart-backend.onrender.com/${imageUrlToUse}` || fallbackImage} alt="" className="absolute w-full h-full object-covr object-scale-down rounded-xl z-40" width={100} height={100} />
                                         <div className="w-full h-full opacity-0 duration-300 ease-out bg-white group-hover:opacity-80 rounded-xl z-40 absolute" >
 
                                             <div className="sm:text-start translate-y-40 translate-x-2 group-hover:translate-y-0 duration-300 ease-out flex flex-col justify-center items-start gap-2 p-2 sm:p-2 xl:p-4">
@@ -64,7 +64,7 @@ const NewCollections = () => {
                                                     <CardTitle className="font-semibold hidden group-hover:block mt-2 text-lg">{price}$</CardTitle>
                                                 </div>
 
-                                                <CardDescription className="hidden group-hover:block text-xs xl:text-sm mt-2 sm:p-4 md:p-0" style={manrope.style}>{description.length < 150 ? description : `${description.split('').splice(0, 130).join("")}...`}</CardDescription>
+                                                <CardDescription className="hidden group-hover:block text-xs xl:text-sm mt-2 sm:p-4 md:p-0" style={manrope.style}>{description.length < 130 ? description : `${description.split('').splice(0, 100).join("")}...`}</CardDescription>
 
                                                 <button className="relative mt-2 items-center justify-center p-2 px-4 py-2 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group-hover:inline-flex group opacity-0 xl:opacity-100"
                                                     onClick={() => router.push("/shop")}>
