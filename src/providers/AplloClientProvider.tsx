@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 // Apollo client ->
 
 const client = new ApolloClient({
-    uri: 'http://localhost:1337/graphql',
+    uri: 'https://imart-backend.onrender.com/graphql',
     cache: new InMemoryCache()
 })
 
