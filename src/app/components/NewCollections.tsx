@@ -64,7 +64,7 @@ const NewCollections = () => {
                                                     <CardTitle className="font-semibold hidden group-hover:block mt-2 text-lg">{price}$</CardTitle>
                                                 </div>
 
-                                                <CardDescription className="hidden group-hover:block text-xs xl:text-sm mt-2 sm:p-4 md:p-0" style={manrope.style}>{description.length < 130 ? description : `${description.split('').splice(0, 100).join("")}...`}</CardDescription>
+                                                <CardDescription className="hidden group-hover:block text-xs xl:text-sm mt-2 sm:p-4 md:p-0" style={manrope.style}>{description.length < 130 ? description : `${description.split('').splice(0, 80).join("")}...`}</CardDescription>
 
                                                 <button className="relative mt-2 items-center justify-center p-2 px-4 py-2 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-purple-500 rounded-full shadow-md group-hover:inline-flex group opacity-0 xl:opacity-100"
                                                     onClick={() => router.push("/shop")}>
