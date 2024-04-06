@@ -90,7 +90,7 @@ const Page = () => {
                                         return <div key={i} className="flex h-[80%] gap-5 md:gap-16 xl:justify-between items-center">
                                             <div className="flex gap-3 items-center mt-3">
                                                 <div className="w-40 lg:w-32 xl:w-20 xl:h-20 h-24">
-                                                    <Image src={`http://localhost:1337${images.data[0]?.attributes?.url}`} alt="" className="w-full h-full object-cover" width={100} height={100} />
+                                                    <Image src={`${images.data[0]?.attributes?.url}`} alt="" className="w-full h-full object-cover" width={100} height={100} />
                                                 </div>
                                                 <div>
                                                     <h4>{name}</h4>
