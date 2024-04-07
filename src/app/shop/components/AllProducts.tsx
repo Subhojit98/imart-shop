@@ -14,7 +14,6 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
-import fallbackImage from '@/app/assets/images/catagory accessories.webp'
 import { Rubik, Manrope } from "next/font/google"
 import Image from "next/image"
 import { useContext, useState } from "react"
@@ -74,7 +73,7 @@ const AllProducts = () => {
                                         >
 
                                             <CardContent className="w-full h-full p-0 relative rounded-md flex justify-center">
-                                                <Image src={`http://localhost:1337${imageUrlToUse}` || fallbackImage} alt="product image" width={100} height={100} className="w-[55%] h-full object-cover object-center absolute rounded-md rounded-b-none" />
+                                                <Image src={imageUrlToUse} alt="product image" width={100} height={100} className="w-[55%] h-full object-cover object-center absolute rounded-md rounded-b-none" />
                                             </CardContent>
 
                                             <div className="px-3">

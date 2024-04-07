@@ -54,7 +54,7 @@ const NewCollections = () => {
                                     const imageUrlToUse = images?.data[0]?.attributes.url
 
                                     return <Card key={i} className=" w-full z-20 h-[30vh] xl:h-[35vh] bg-white cursor-pointer border-none relative group flex justify-start items-end shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] mb-3" >
-                                        <Image src={imageUrlToUse} alt="" className="absolute w-full h-full object-covr object-scale-down rounded-xl z-40" width={100} height={100} />
+                                        <Image src={imageUrlToUse} alt="" className="absolute w-full h-full object-covr object-scale-down rounded-xl " width={100} height={100} />
                                         <div className="w-full h-full opacity-0 duration-300 ease-out bg-white group-hover:opacity-80 rounded-xl absolute" >
 
                                             <div className="sm:text-start translate-y-40 translate-x-2 group-hover:translate-y-0 duration-300 ease-out flex flex-col justify-center items-start gap-2 p-2 sm:p-2 xl:p-4 ">

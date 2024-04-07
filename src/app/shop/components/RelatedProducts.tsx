@@ -1,6 +1,5 @@
 "use client"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import fallbackImage from '@/app/assets/images/catagory accessories.webp'
 import Image from "next/image"
 import { Rubik, Manrope, Raleway } from "next/font/google"
 import { useFetchRelatedProducts } from "@/app/hooks/useFetchRelatedProducts"
@@ -56,7 +55,7 @@ const RelatedProducts = () => {
                                     return < Card key={i} className=" w-11/12 h-[38vh] bg- cursor-pointer border-none rounded-md flex flex-col justify-between gap-2 shadow-[rgba(50,50,93,0.25)_0px_6px_12px_-2px,_rgba(0,0,0,0.3)_0px_3px_7px_-3px] hover:-translate-y-2 duration-200 ease-out" onClick={() => handleClickProduct(product.attributes)}>
 
                                         <CardContent className="w-full h-full p-0 relative rounded-md flex justify-center">
-                                            <Image src={`http://localhost:1337${imageUrlToUse}` || fallbackImage} alt="product image" className="w-11/12 h-full object-contain object-center absolute rounded-md " width={100} height={100} />
+                                            <Image src={imageUrlToUse} alt="product image" className="w-11/12 h-full object-contain object-center absolute rounded-md " width={100} height={100} />
                                         </CardContent>
 
                                         <div className="px-3">

@@ -22,7 +22,7 @@ const ProductImages = ({ images }: ProductImageProps) => {
                                 images?.data.map((ProductImage, i: number) => {
                                     const imageUrlToUse = ProductImage.attributes.url
                                     return <CarouselItem key={i}>
-                                        <Image src={`https://imart-backend.onrender.com/${imageUrlToUse}`} alt="product image" className="object-cover object-center w-full h-full" width={100} height={100} />
+                                        <Image src={imageUrlToUse} alt="product image" className="object-cover object-center w-full h-full" width={100} height={100} />
                                     </CarouselItem>
 
                                 })
@@ -39,7 +39,7 @@ const ProductImages = ({ images }: ProductImageProps) => {
                     {
                         images?.data.map((ProductImage, i: number) => {
                             return <div key={i} className="w-[25%] h-[10vh] sm:h-[13vh] xl:h-[20vh] border border-black">
-                                <Image src={`https://imart-backend.onrender.com${ProductImage.attributes.url}`} alt="product image" className="object-contain w-full h-full" width={100} height={100} />
+                                <Image src={ProductImage.attributes.url} alt="product image" className="object-contain w-full h-full" width={100} height={100} />
                             </div>
                         })
                     }

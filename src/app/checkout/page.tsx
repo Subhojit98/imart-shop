@@ -50,7 +50,7 @@ const Cart = () => {
                                             const { name, price, quantity, images } = items
                                             const imageToUse = images.data[0]?.attributes?.url
                                             return <div key={i} className="flex flex-col rounded-lg bg-white sm:flex-row">
-                                                <Image src={`http://localhost:1337${imageToUse}`} alt="product image" width={100} height={100} className="m-2 h-24 w-28 rounded-md border object-cover object-center" />
+                                                <Image src={imageToUse} alt="product image" width={100} height={100} className="m-2 h-24 w-28 rounded-md border object-cover object-center" />
                                                 <div className="flex w-full flex-col px-4 py-4 gap-2">
                                                     <span className="font-semibold">{name}</span>
                                                     <p className="text-lg font-bold">{price}$</p>
