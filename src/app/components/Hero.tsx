@@ -2,11 +2,11 @@
 import { Chakra_Petch, Manrope, Raleway } from 'next/font/google'
 import { useRouter } from 'next/navigation'
 const chakra = Chakra_Petch({ weight: "400", subsets: ["thai"] })
-const raleway = Raleway({ weight: "400", subsets: ["cyrillic"] })
 const manrope = Manrope({ weight: "400", subsets: ["greek"] })
 
 const Hero = () => {
     const router = useRouter()
+
     return (
         <>
             <div className="w-full h-full">
