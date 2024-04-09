@@ -1,11 +1,33 @@
 "use client"
 import { Chakra_Petch, Manrope, Raleway } from 'next/font/google'
 import { useRouter } from 'next/navigation'
+import { use, useEffect, useState } from 'react'
 const chakra = Chakra_Petch({ weight: "400", subsets: ["thai"] })
 const manrope = Manrope({ weight: "400", subsets: ["greek"] })
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
+
 
 const Hero = () => {
     const router = useRouter()
+    const [alert, setAlert] = useState(false)
+
+    useEffect(() => {
+
+        const timerId = setTimeout(() => setAlert(true), 2000)
+
+        return () => clearTimeout(timerId)
+    }, [])
+
+
 
     return (
         <>
@@ -36,6 +58,24 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Alert API response time ->*/}
+
+            <AlertDialog open={alert}>
+                <AlertDialogContent>
+                    <AlertDialogHeader>
+                        <AlertDialogTitle className='text-amber-500'>Busy Backend Alert !</AlertDialogTitle>
+                        <AlertDialogDescription className='text-black'>
+                            This Application is useing stapi as backend for products. and currently the backend is hoasted on a free tier server. so it may take some time (60 sec) to load the products. please be patient 🙏🏼🙇🏼‍♀️.
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction onClick={() => setAlert(false)}>Okay,Undertand</AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
+
         </>
     )
 }

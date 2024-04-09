@@ -9,7 +9,7 @@ import { Context } from "@apollo/client"
 import { useRouter } from "next/navigation"
 import { useContext } from "react"
 const ProductCatagoty = () => {
-  const { filters, setFilters } = useContext<Context>(GlobalProviderContext)
+  const { setFilters } = useContext<Context>(GlobalProviderContext)
 
   const router = useRouter()
 
