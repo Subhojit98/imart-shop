@@ -15,6 +15,17 @@ const chakra = Chakra_Petch({ weight: "400", subsets: ["latin"] })
 
 
 const Footer = () => {
+
+
+    const fetchBackend = () => {
+        fetch('https://strapi-backend-35x6.onrender.com')
+            .then(res => res
+            )
+            .catch(err => console.log(err))
+
+    }
+
+    fetchBackend()
     return (
         <>
             {/* Speciality section -> */}

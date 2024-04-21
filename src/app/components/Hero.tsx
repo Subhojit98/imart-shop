@@ -1,3 +1,4 @@
+
 "use client"
 import { Chakra_Petch, Manrope, Raleway } from 'next/font/google'
 import { useRouter } from 'next/navigation'
@@ -7,7 +8,6 @@ const manrope = Manrope({ weight: "400", subsets: ["greek"] })
 import {
     AlertDialog,
     AlertDialogAction,
-    AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
     AlertDialogFooter,
@@ -22,9 +22,15 @@ const Hero = () => {
 
     useEffect(() => {
 
-        const timerId = setTimeout(() => setAlert(true), 2000)
+        if (sessionStorage.getItem('alert') === 'true') {
+            setAlert(false)
+        }
+        else {
+            sessionStorage.setItem('alert', 'true')
+            setTimeout(() => setAlert(true), 2000)
 
-        return () => clearTimeout(timerId)
+        }
+
     }, [])
 
 
@@ -70,7 +76,6 @@ const Hero = () => {
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                        <AlertDialogCancel>Cancel</AlertDialogCancel>
                         <AlertDialogAction onClick={() => setAlert(false)}>Okay,Undertand</AlertDialogAction>
                     </AlertDialogFooter>
                 </AlertDialogContent>
